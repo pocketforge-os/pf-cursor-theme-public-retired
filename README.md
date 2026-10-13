@@ -136,7 +136,29 @@ Each cursor contains information about which cursor and variant it belongs to, w
 
 Phinger Cursors are built using my [Cursor Theme Builder](https://github.com/phisch/cursor-theme-builder). It provides a JSON schema to describe a cursor theme, an exporter, that can create such a JSON file and assets from a Figma file, and a builder, which makes fully functioning X11 cursor theme variants from that. It also allows to transform cursors into left-handed versions, comes with an animation system and more.
 
-This repository contains [workflows](.github/workflows) to extract a cursor-theme.json and assets, and drafts a release with built cursor theme variants.
+The upstream project uses workflows to extract a cursor-theme.json and draft
+releases with built cursor theme variants.
+
+## PocketForge patch stack
+
+The `pocketforge-linear` branch keeps the upstream SVG tree intact and adds a
+small, reproducible patch stack for the PocketForge light and dark cursor
+themes. `shapes.toml` is the cursor-shape-v2 name and alias contract,
+`build_cursors.py` compiles the checked-in SVGs, and `test_cursors.py` checks
+the compiled Xcursor payload. The two additional native shapes live in `src/`
+and can be regenerated with `src/make_shapes.py`.
+
+Build and test the themes with the same commands used by CI:
+
+```sh
+python3 build_cursors.py --out build
+python3 test_cursors.py
+```
+
+The output is `build/pocketforge-light` and `build/pocketforge-dark`. No
+release artifact is published from this repository; the PocketForge image
+build consumes a commit-pinned checkout. See [ATTRIBUTION.md](ATTRIBUTION.md)
+for the upstream source and ShareAlike details.
 
 ## License & Credits
 All assets, including the Figma document are licensed under the [CC-BY-SA-4.0 License](LICENSE).
