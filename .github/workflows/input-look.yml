@@ -1,0 +1,36 @@
+name: input-look
+
+# Run the committed payload in the reviewed, digest-pinned ci-tools image.
+# The SHA-pinned reusable workflow owns source checkout and container admission;
+# this repository keeps only a fail-closed result gate on the ordinary pf-ci pool.
+on:
+  push:
+    branches: ["**"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: input-look-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  payload:
+    uses: pocketforge-os/shared-workflows/.github/workflows/rust-container.yml@a9bf52d69199418e3443ea81919c4128783a9700
+    with:
+      source-sha: ${{ github.sha }}
+      workflow-sha: a9bf52d69199418e3443ea81919c4128783a9700
+      image: 10.0.32.86:5555/pocketforge/ci-tools@sha256:2ff536627228c90e5c32b7d6345b21600a38a17481c075b41683db47ead3e862
+      script: scripts/ci-container.sh
+
+  input-look:
+    name: input-look
+    needs: payload
+    if: always()
+    runs-on: [self-hosted, pf-ci]
+    timeout-minutes: 2
+    steps:
+      - name: Require successful container payload
+        env:
+          RESULT: ${{ needs.payload.result }}
+        run: test "$RESULT" = success
