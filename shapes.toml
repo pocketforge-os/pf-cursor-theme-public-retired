@@ -1,0 +1,173 @@
+# PocketForge cursor-theme name table. Every cursor-shape-v1/v2 canonical
+# name resolves to a source in this fork; legacy X11 names are local aliases.
+
+[theme]
+name = "PocketForge"
+sizes = [32, 48, 64, 96, 128]
+default_size = 48
+design_size = 32
+variants = ["light", "dark"]
+
+[theme.colours.light]
+fill = "#f4efe6"
+outline = "#171512"
+
+[theme.colours.dark]
+fill = "#171512"
+outline = "#f4efe6"
+
+[theme.palette]
+white = "#ffffff"
+black = "#000000"
+yellow = "#ffd83d"
+cyan = "#4fd6e8"
+magenta = "#f05fc8"
+lime = "#9ff04a"
+
+[shapes.default]
+source = "default"
+aliases = ["arrow", "left_ptr", "top_left_arrow"]
+
+[shapes.context-menu]
+source = "context-menu"
+aliases = []
+
+[shapes.help]
+source = "help"
+aliases = ["question_arrow", "whats_this", "left_ptr_help", "dnd-help"]
+
+[shapes.pointer]
+source = "pointer"
+aliases = ["hand2", "pointing_hand", "hand"]
+
+[shapes.progress]
+source = "progress"
+aliases = ["left_ptr_watch", "half-busy", "08e8e1c95fe2fc01f976f1e063a24ccd"]
+animate = { frames = 16, ms = 60 }
+
+[shapes.wait]
+source = "wait"
+aliases = ["watch"]
+animate = { frames = 16, ms = 60 }
+
+[shapes.cell]
+source = "cell"
+aliases = ["plus"]
+
+[shapes.crosshair]
+source = "crosshair"
+aliases = ["cross", "cross_reverse", "diamond_cross", "tcross", "target"]
+
+[shapes.text]
+source = "text"
+aliases = ["xterm", "ibeam"]
+
+[shapes.vertical-text]
+source = "vertical-text"
+aliases = []
+
+[shapes.alias]
+source = "alias"
+aliases = ["link", "dnd-link"]
+
+[shapes.copy]
+source = "copy"
+aliases = ["dnd-copy"]
+
+[shapes.move]
+source = "move"
+aliases = ["fleur", "size_all", "dnd-move"]
+
+[shapes.no-drop]
+source = "no-drop"
+aliases = ["dnd-no-drop", "forbidden"]
+
+[shapes.not-allowed]
+source = "not-allowed"
+aliases = ["crossed_circle", "circle"]
+
+[shapes.grab]
+source = "grab"
+aliases = ["hand1", "openhand"]
+
+[shapes.grabbing]
+source = "grabbing"
+aliases = ["dnd-none", "closedhand"]
+
+[shapes.e-resize]
+source = "e-resize"
+aliases = ["right_side"]
+
+[shapes.n-resize]
+source = "n-resize"
+aliases = ["top_side"]
+
+[shapes.ne-resize]
+source = "ne-resize"
+aliases = ["top_right_corner"]
+
+[shapes.nw-resize]
+source = "nw-resize"
+aliases = ["top_left_corner"]
+
+[shapes.s-resize]
+source = "s-resize"
+aliases = ["bottom_side"]
+
+[shapes.se-resize]
+source = "se-resize"
+aliases = ["bottom_right_corner"]
+
+[shapes.sw-resize]
+source = "sw-resize"
+aliases = ["bottom_left_corner"]
+
+[shapes.w-resize]
+source = "w-resize"
+aliases = ["left_side"]
+
+[shapes.ew-resize]
+source = "ew-resize"
+aliases = ["sb_h_double_arrow", "size_hor", "h_double_arrow"]
+
+[shapes.ns-resize]
+source = "ns-resize"
+aliases = ["sb_v_double_arrow", "size_ver", "v_double_arrow"]
+
+[shapes.nesw-resize]
+source = "nesw-resize"
+aliases = ["fd_double_arrow", "size_bdiag"]
+
+[shapes.nwse-resize]
+source = "nwse-resize"
+aliases = ["bd_double_arrow", "size_fdiag"]
+
+[shapes.col-resize]
+source = "col-resize"
+aliases = ["split_h", "sb_h_double_arrow_split"]
+
+[shapes.row-resize]
+source = "row-resize"
+aliases = ["split_v"]
+
+[shapes.all-scroll]
+source = "all-scroll"
+aliases = []
+
+[shapes.zoom-in]
+source = "zoom-in"
+aliases = []
+
+[shapes.zoom-out]
+source = "zoom-out"
+aliases = []
+
+# cursor-shape-v2 additions. Upstream aliases these to context-menu and move;
+# PocketForge owns distinct drawings under src/.
+[shapes.dnd-ask]
+source = "dnd-ask"
+aliases = []
+
+[shapes.all-resize]
+source = "all-resize"
+aliases = []
